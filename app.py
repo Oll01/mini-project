@@ -27,24 +27,10 @@ def home():
 PROJECTS = [
     {
         "id": 1,
-        "title": "Web Service Portfolio",
-        "description": "A personal portfolio web service built with Flask.",
-        "tech_stack": ["Python", "Flask"],
-        "github_url": "https://github.com/username/web-service"
-    },
-    {
-        "id": 2,
-        "title": "Todo App",
-        "description": "A simple task management application.",
-        "tech_stack": ["Python", "Flask", "SQLite"],
-        "github_url": "https://github.com/username/todo-app"
-    },
-    {
-        "id": 3,
-        "title": "Chat Bot",
-        "description": "An AI-powered chatbot for customer support.",
-        "tech_stack": ["Python", "NLP"],
-        "github_url": "https://github.com/username/chatbot"
+        "title": "Flask 기반 개인 포트폴리오 웹 서비스",
+        "description": "경북대학교 전자공학부 미니 프로젝트의 일환으로 제작된, Flask API 기반의 개인 포트폴리오 서비스입니다. Git 브랜치 전략을 활용하여 개발되었습니다.",
+        "tech_stack": ["Python", "Flask", "Git"],
+        "github_url": "https://github.com/Oll01/mini-project"
     }
 ]
 
