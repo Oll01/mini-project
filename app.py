@@ -15,9 +15,9 @@ def home():
     return jsonify({
         "page": "home",
         "name": "김준석",
-        "title": "전자공학 전공 & 예비 개발자",
-        "bio": "Passionate developer interested in open source and web technologies.",
-        "skills": ["Python", "Flask", "Git", "HTML/CSS"]
+        "title": "경북대학교 전자공학부 4학년",
+        "bio": "AI, 임베디드 시스템, IoT 분야에 관심이 많은 예비 엔지니어입니다.",
+        "skills": ["Python", "Flask", "Git", "Java", "SQL", "Embedded Systems"]
     })
 
 
