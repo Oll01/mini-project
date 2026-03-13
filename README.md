@@ -1,55 +1,25 @@
-# Web Service Portfolio
+# 2026-1 웹서비스 프로그래밍 미니 프로젝트 (Part 1)
 
-A personal portfolio web service built with Flask, showcasing projects and contact information.
+경북대학교 전자공학부 김준석 (2021111675)
 
-## Features
+## 1. 프로젝트 개요
+Flask 프레임워크를 활용하여 간단한 개인 포트폴리오 정보를 제공하는 API 서버를 구축하였습니다. 
+Git의 feature 브랜치 전략을 학습하고 적용하는 것을 주 목적으로 합니다.
 
-- **Home** (`/`, `/home`) - Personal introduction and skill set
-- **Projects** (`/projects`) - Portfolio project list with detail view
-- **Contact** (`/contact`) - Contact information and social links
+## 2. 주요 기능 (API 엔드포인트)
+- **Home (`/`)**: 본인의 인적사항 및 기술 스택 정보 반환
+- **Projects (`/projects`)**: 현재 진행 중인 프로젝트(Flask 포트폴리오) 정보 반환
+- **Contact (`/contact`)**: 이메일, GitHub, LinkedIn 등 연락처 정보 반환
 
-## Tech Stack
+## 3. 사용 기술
+- **Language**: Python 2.7 (운영체제 기본 환경)
+- **Framework**: Flask 1.1.4
+- **Version Control**: Git (Branch: main, feature/portfolio-update)
 
-- Python 3.x
-- Flask 3.1.1
-
-## Installation
-
+## 4. 실행 방법
 ```bash
-# Clone the repository
-git clone https://github.com/username/web-service.git
-cd web-service
-
-# Install dependencies
+# 관련 패키지 설치
 pip install -r requirements.txt
-```
 
-## Usage
-
-```bash
-# Run the server
-flask run
-```
-
-Open your browser and navigate to `http://127.0.0.1:5000`
-
-## API Endpoints
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/` | Home page with personal info |
-| GET | `/home` | Same as `/` |
-| GET | `/projects` | List all projects |
-| GET | `/projects/<id>` | Get project detail by ID |
-| GET | `/contact` | Contact information |
-
-## Git Branch Strategy
-
-- `main` - Production-ready code
-- `feature/home` - Home page feature
-- `feature/projects` - Projects page feature
-- `feature/contact` - Contact page feature
-
-## License
-
-MIT License
+# 서버 실행
+python app.py
