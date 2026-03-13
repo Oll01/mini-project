@@ -62,10 +62,11 @@ def project_detail(project_id):
 def contact():
     return jsonify({
         "page": "contact",
-        "email": "your.email@example.com",
-        "github": "https://github.com/username",
-        "linkedin": "https://linkedin.com/in/username",
-        "message": "Feel free to reach out for collaboration!"
+        "name": "김준석",
+        "email": "see5932@naver.com",  
+        "github": "https://github.com/Oll01",
+        "linkedin": "https://linkedin.com/in/준석-김",
+        "message": "전자공학 및 AI 분야 협업을 환영합니다! 언제든 연락주세요."
     })
 
 
