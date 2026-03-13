@@ -12,8 +12,8 @@ Git의 feature 브랜치 전략을 학습하고 적용하는 것을 주 목적�
 - **Contact (`/contact`)**: 이메일, GitHub, LinkedIn 등 연락처 정보 반환
 
 ## 3. 사용 기술
-- **Language**: Python 2.7 (운영체제 기본 환경)
-- **Framework**: Flask 1.1.4
+- **Language**: Python 3.10+
+- **Framework**: Flask 3.0.x
 - **Version Control**: Git (Branch: main, feature/portfolio-update)
 
 ## 4. 실행 방법
