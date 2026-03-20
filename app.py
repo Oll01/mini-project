@@ -1,13 +1,8 @@
-# app.py
-
 from flask import Flask, jsonify, request
 from validation import validate_email
 
 app = Flask(__name__)
 
-# ============================================================
-# Feature 1: Home - Personal Introduction
-# ============================================================
 @app.route("/")
 @app.route("/home")
 def home():
@@ -19,9 +14,6 @@ def home():
         "skills": ["Python", "Flask", "Git", "Java", "SQL", "Embedded Systems"]
     })
 
-# ============================================================
-# Feature 2: Projects - Portfolio Project List
-# ============================================================
 PROJECTS = [
     {
         "id": 1,
@@ -50,9 +42,6 @@ def project_detail(project_id):
         "project": project
     })
 
-# ============================================================
-# Feature 3: Contact - Contact Information (기존 단순 조회용)
-# ============================================================
 @app.route("/contact")
 def contact():
     return jsonify({
@@ -64,29 +53,18 @@ def contact():
         "message": "전자공학 및 AI 분야 협업을 환영합니다! 언제든 연락주세요."
     })
 
-# ============================================================
-# Feature 4: TADD - Contact Email Validation (POST) - 새로 추가된 부분!
-# ============================================================
 @app.route('/api/contact', methods=['POST'])
 def contact_route():
     data = request.get_json() or {}
     email = data.get('email', '')
-    
-    # TADD로 만든 검증 로직 실행
     errors = validate_email(email)
-    
     if errors:
         return jsonify({"success": False, "errors": errors}), 400
-        
     return jsonify({"success": True, "message": "이메일이 성공적으로 접수되었습니다!"}), 200
 
-# ============================================================
-# Error Handlers
-# ============================================================
 @app.errorhandler(404)
 def not_found(error):
     return jsonify({"error": "Page not found"}), 404
-
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
