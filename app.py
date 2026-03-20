@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from validation import validate_email
 
 app = Flask(__name__)
@@ -64,7 +64,11 @@ def contact_route():
 
 @app.errorhandler(404)
 def not_found(error):
-    return jsonify({"error": "Page not found"}), 404
+    return jsonify({"error": "Page not found"}), 
+
+@app.route("/inquiry")
+def inquiry_page():
+    return render_template("inquiry.html")
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
