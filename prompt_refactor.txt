@@ -1,0 +1,61 @@
+# Mini-Project Part 3 - AI Collaboration Log
+
+=== 악취 1번: Large Class (app.py) ===
+[나의 질문] app.py에 모든 기능이 몰려있는 Large Class 문제를 해결할 리팩토링 전략을 여러 개 제안해줘.
+[AI 제안]
+악취 1번: Large Class (Bloaters) — app.py
+AI 제안 전략:
+전략 A-1: Extract Module (모듈 분리)
+app.py에서 데이터(PROJECTS)와 관련 로직을 models.py로, 라우트를 기능별로 routes.py로 분리합니다.
+전략 A-2: Blueprint 패턴 적용
+Flask의 Blueprint 기능을 사용해서 라우트를 기능별(home, projects, contact)로 나눠 각각 별도 파일로 관리합니다.
+전략 A-3: 데이터만 분리
+라우팅 구조는 그대로 두고, PROJECTS 데이터만 data.py로 옮깁니다. 가장 변경 범위가 작습니다.
+
+=== 악취 2번: Primitive Obsession (PROJECTS 딕셔너리) ===
+[나의 질문] PROJECTS를 딕셔너리로만 관리하는 Primitive Obsession 문제를 해결할 리팩토링 전략을 여러 개 제안해줘.
+[AI 제안]
+악취 2번: Primitive Obsession (Bloaters) — PROJECTS 딕셔너리
+AI 제안 전략:
+전략 B-1: dataclass 도입
+Python의 @dataclass 데코레이터를 사용해서 Project 클래스를 만듭니다. 코드가 간결하고 타입 힌트도 자동으로 적용됩니다.
+전략 B-2: 일반 Class 도입
+__init__을 직접 작성하는 일반 클래스로 Project 객체를 만듭니다.
+전략 B-3: TypedDict 사용
+딕셔너리 구조는 유지하되 TypedDict로 타입을 명시해서 키 오타 등의 실수를 방지합니다.
+
+=== 악취 3번: Divergent Change (app.py 의존성) ===
+[나의 질문] app.py가 여러 이유로 수정되어야 하는 Divergent Change 문제를 해결할 리팩토링 전략을 여러 개 제안해줘.
+[AI 제안]
+악취 3번: Divergent Change (Change Preventers) — app.py
+AI 제안 전략:
+전략 C-1: 책임별 파일 분리
+app.py의 책임을 라우팅(routes.py), 데이터(data.py), 검증(validation.py)으로 나눠 각 파일이 하나의 이유로만 변경되도록 합니다.
+전략 C-2: 설정 분리
+자주 바뀌는 개인 정보(이름, 이메일 등)를 별도 config.py로 분리해서 데이터 변경 시 app.py를 건드리지 않아도 되도록 합니다.
+전략 C-3: 현행 유지 + 주석으로 책임 구분
+파일 분리 없이 app.py 안에서 섹션별로 명확하게 주석으로 구분합니다. 가장 변경이 작지만 근본적인 해결은 아닙니다.
+
+=== 악취 4번: Duplicated Code (JSON 응답 구조 반복) ===
+[나의 질문] jsonify 응답 구조가 반복되는 Duplicated Code 문제를 해결할 리팩토링 전략을 여러 개 제안해줘.
+[AI 제안]
+악취 4번: Duplicated Code (Dispensables) — JSON 응답 구조 반복
+AI 제안 전략:
+전략 D-1: Helper 함수 추출 (Extract Method)
+make_response(page, data) 같은 공통 함수를 만들어서 모든 라우트가 이 함수를 호출하도록 합니다.
+전략 D-2: 데코레이터 패턴 적용
+Flask 라우트에 공통 응답 형식을 자동으로 씌워주는 데코레이터를 만듭니다.
+전략 D-3: 현행 유지
+현재 프로젝트 규모에서는 중복이 심각하지 않으므로 그대로 둡니다.
+
+=== 악취 5번: Magic String ("INVALID_EMAIL" 하드코딩) ===
+[나의 질문] "INVALID_EMAIL"이 두 파일에 하드코딩된 Magic String 문제를 해결할 리팩토링 전략을 여러 개 제안해줘.
+[AI 제안]
+악취 5번: Magic String (Dispensables) — "INVALID_EMAIL" 하드코딩
+AI 제안 전략:
+전략 E-1: 상수로 치환 (Replace Magic String)
+validation.py에 INVALID_EMAIL = "INVALID_EMAIL" 상수를 정의하고, test_validation.py에서도 이 상수를 import해서 사용합니다.
+전략 E-2: Enum 클래스 도입
+ValidationError라는 Enum 클래스를 만들어서 ValidationError.INVALID_EMAIL처럼 사용합니다. 나중에 에러 종류가 늘어날 때 확장하기 좋습니다.
+전략 E-3: 현행 유지
+문자열이 짧고 단순해서 그대로 둡니다.
