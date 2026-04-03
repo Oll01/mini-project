@@ -1,0 +1,19 @@
+# Context
+나는 Python Flask로 포트폴리오 웹 서비스를 개발 중이야. 방문자가 남기는 연락처 폼에서 '이메일' 입력값을 검증하는 로직이 필요해.
+아래의 pytest 테스트 코드가 모두 통과(GREEN)하도록 `validation.py` 파일 안에 `validate_email` 함수를 구현해 줘.
+
+[테스트 코드]
+import pytest
+from validation import validate_email
+
+def test_valid_email():
+    assert validate_email("test@knu.ac.kr") == []
+def test_invalid_email_format():
+    assert validate_email("invalid-email.com") == ["INVALID_EMAIL"]
+def test_empty_email():
+    assert validate_email("") == ["INVALID_EMAIL"]
+
+# Constraints
+1. 너는 10년 차 파이썬 백엔드 보안 아키텍트야.
+2. 이메일 형식을 검증할 때는 정규표현식(`re` 모듈)을 사용해 줘.
+3. 에러가 발생하면 "INVALID_EMAIL" 문자열을 리스트에 담아 반환하고, 정상이면 빈 리스트를 반환해.
