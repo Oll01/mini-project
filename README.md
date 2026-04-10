@@ -1,5 +1,5 @@
 # 1. 📂 Junseok's Portfolio & GitHub Analyzer
-### "단순한 이력서를 넘어, 데이터를 증명하는 포트폴리오 플랫폼"
+### "개인 포트폴리오 서빙에서 시작하여, 개발자의 실무 역량을 정량화하는 깃허브 분석 엔진으로"
 > **🔗 실시간 배포 문서:** [GitHub Pages 바로가기](https://oll01.github.io/mini-project/build/html/index.html)
 
 ---
